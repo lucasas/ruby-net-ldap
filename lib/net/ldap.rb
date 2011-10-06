@@ -1216,7 +1216,7 @@ class Net::LDAP::Connection #:nodoc:
   #++
   def bind_simple(auth)
     user, psw = if auth[:method] == :simple
-                  [auth[:username] || auth[:dn], auth[:password]]
+                  [auth[:username] || auth[:dn] || "", auth[:password] || ""]
                 else
                   ["", ""]
                 end
